@@ -73,7 +73,7 @@ def create_submission(input_annotations, predicted, samples_ids, vocabs):
         pred['answer'] = real_answers[i]
         submission.append(pred)
 
-    return submission
+    return pred['answer']
 
 
 def main():
@@ -96,7 +96,9 @@ def main():
     # Load annotations
     path_annotations = os.path.join(config['annotations']['dir'], config['prediction']['split'] + '.json')
     input_annotations = json.load(open(path_annotations, 'r'))
-
+    input_annotations = 
+    print(input_annotations[1]['image'])
+    
     # Data loader and dataset
     input_loader = vqa_dataset.get_loader(config, split=config['prediction']['split'])
 
@@ -113,15 +115,14 @@ def main():
 
     dict_weights = log['weights']
     model.load_state_dict(dict_weights)
-
     predicted, samples_ids = predict_answers(model, input_loader, split=config['prediction']['split'])
-
+    print(torch.FloatTensor(predicted))#, samples_ids)
+    #print(input_annotations, predicted, samples_ids, input_loader.dataset.vocabs)
     submission = create_submission(input_annotations, predicted, samples_ids, input_loader.dataset.vocabs)
 
-    with open(config['prediction']['submission_file'], 'w') as fd:
-        json.dump(submission, fd)
-
-    print("Submission file saved in %s" % config['prediction']['submission_file'])
+    #with open(config['prediction']['submission_file'], 'w') as fd:
+    #    json.dump(submission, fd)
+    print(submission)
 
 
 if __name__ == '__main__':
