@@ -9,8 +9,12 @@ In order to consider all 10 answers given by the annotators we exploit a Soft Cr
 
 ![image](https://user-images.githubusercontent.com/113374250/206721018-caebc9a8-96c4-44f8-a284-8f8726b3d345.png)
 
+###Training Results
+![image](https://user-images.githubusercontent.com/113374250/206721700-5ff9ba4c-5b09-4774-8bf9-198f9a7cb842.png)
+We acheived an accuracy of 0.56 which is higher than the one presented in the VQA Paper(0.447).
 
-We also designed and implemented a GUI interface to show the training results.
+
+We also designed and implemented a GUI interface to show the final results results.
 ![image](https://user-images.githubusercontent.com/113374250/206720901-013bcbc8-f3f2-4f9b-b805-6a2220ccbc8e.png)
 
 Reference:https://github.com/DenisDsh/VizWiz-VQA-PyTorch
